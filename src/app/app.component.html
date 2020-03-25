@@ -1,7 +1,39 @@
-<app-header (feautreSelected)="onNavigate($event)"></app-header>
-<div class="container">
-<div class="row">
-<div class="col-md-12">
-<router-outlet></router-outlet>
-</div>
-</div></div>
+<header class="intro-header">
+    
+
+
+  <!--Intro Section-->
+  <section class="view intro-2">
+    <div class="full-bg-img mask rgba-gradient">
+  
+        <div class="container flex-center">
+  
+            <div class="d-flex align-items-center content-height w-100">
+  
+                <div class="row flex-center pt-5 mt-3 w-100">
+                    <app-header (feautreSelected)="onNavigate($event)"></app-header>
+  
+                    <div class="col-md-6 text-center text-md-left mb-5">
+              <div class="white-text">
+                <div class="col-md-6 col-xl-5 offset-xl-1">
+                   
+    <div class="container" >
+    <div class="row">
+    <div class="col-md-12">
+    <router-outlet></router-outlet>
+    </div>
+    </div></div>
+            </div>
+            </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+</header>
