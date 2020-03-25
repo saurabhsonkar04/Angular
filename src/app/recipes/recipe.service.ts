@@ -48,4 +48,9 @@ export class RecipeService
     this.recipes.splice(index,1);
     this.updateRecipeList.next(this.recipes.slice());
   }
+  setRecipes(recipes)
+  {
+    this.recipes = recipes;
+    this.updateRecipeList.next(this.recipes.slice());
+  }
 }

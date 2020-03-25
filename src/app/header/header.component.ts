@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core'
+import { RecipeService } from '../recipes/recipe.service';
+import { DataStorage } from '../shared/datastorage.service';
 
 @Component(
     {
@@ -8,10 +10,17 @@ import {Component, EventEmitter, Output} from '@angular/core'
     }
 )
 export class HeaderComponent{
-    @Output() feautreSelected = new EventEmitter<string>();
-
-    onSelect(feature: string)
+ 
+    constructor(private rs:RecipeService,
+        private db:DataStorage){}
+    onSave()
     {
-        this.feautreSelected.emit(feature);
+        this.db.storeRecipes().subscribe(
+            (resp:Response) => {console.log(resp)}
+        );
+    }
+    fetch()
+    {
+        this.db.fetchRecipes();
     }
 }
