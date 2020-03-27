@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core'
 import { RecipeService } from '../recipes/recipe.service';
 import { DataStorage } from '../shared/datastorage.service';
+import { AuthFirebase } from '../auth/auth.service';
 
 @Component(
     {
@@ -12,7 +13,8 @@ import { DataStorage } from '../shared/datastorage.service';
 export class HeaderComponent{
  
     constructor(private rs:RecipeService,
-        private db:DataStorage){}
+        private db:DataStorage,
+        public auth:AuthFirebase){}
     onSave()
     {
         this.db.storeRecipes().subscribe(
@@ -22,5 +24,9 @@ export class HeaderComponent{
     fetch()
     {
         this.db.fetchRecipes();
+    }
+    logOut()
+    {
+        this.auth.signOut();
     }
 }
