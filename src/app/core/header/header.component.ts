@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Output} from '@angular/core'
-import { RecipeService } from '../recipes/recipe.service';
-import { DataStorage } from '../shared/datastorage.service';
-import { AuthFirebase } from '../auth/auth.service';
+import { RecipeService } from '../../recipes/recipe.service';
+import { DataStorage } from '../../shared/datastorage.service';
+import { AuthFirebase } from '../../auth/auth.service';
+import { LambdaService } from 'src/app/shared/lambda.service';
 
 @Component(
     {
@@ -11,7 +12,7 @@ import { AuthFirebase } from '../auth/auth.service';
     }
 )
 export class HeaderComponent{
- 
+    awsResp;
     constructor(private rs:RecipeService,
         private db:DataStorage,
         public auth:AuthFirebase){}
@@ -29,4 +30,5 @@ export class HeaderComponent{
     {
         this.auth.signOut();
     }
+    
 }
